@@ -4,14 +4,10 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 use crate::cli::run_cli;
-fn print_type_of<T>(_: &T) {
-    println!("{}", std::any::type_name::<T>())
-}
 
 fn main() {
     let file = check_requirements_exist_file();
     println!("requirements: {:?}", file);
-    print_type_of(&file);
     read_requirements_file(file);
 
     let folder = check_requirements_exist_folder();
