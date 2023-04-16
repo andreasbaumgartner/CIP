@@ -1,17 +1,15 @@
-use std::process::Command;
+use clap::Parser;
 
+/// Search for a pattern in a file and display the lines that contain it.
+#[derive(Parser, Debug)]
 struct Cli {
-    pub command: String,
-    pub args: Vec<String>,
+    /// The pattern to look for
+    command: String,
+    /// The path to the file to read
+    path: std::path::PathBuf,
 }
 
-fn cli() {
-    let command = Command::new("pip")
-        .arg("install")
-        .arg("-r")
-        .arg("requirements.txt")
-        .output()
-        .expect("Failed to execute pip install -r requirements.txt");
-    println!("stdout: {}", String::from_utf8_lossy(&command.stdout));
-    println!("stderr: {}", String::from_utf8_lossy(&command.stderr));
+pub fn run_cli() {
+    let args = Cli::parse();
+    println!("{:?}", args);
 }

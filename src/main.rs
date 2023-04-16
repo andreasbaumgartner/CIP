@@ -1,7 +1,9 @@
+mod cli;
 use glob::glob;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
+use crate::cli::run_cli;
 fn print_type_of<T>(_: &T) {
     println!("{}", std::any::type_name::<T>())
 }
@@ -14,6 +16,8 @@ fn main() {
 
     let folder = check_requirements_exist_folder();
     println!("requirements: {:?}", folder);
+
+    let _args = run_cli();
 }
 
 fn check_requirements_exist_file() -> Vec<String> {
