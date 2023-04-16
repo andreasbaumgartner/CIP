@@ -2,7 +2,7 @@ use clap::Parser;
 
 /// Search for a pattern in a file and display the lines that contain it.
 #[derive(Parser, Debug)]
-struct Cli {
+struct SearchPackages {
     /// The pattern to look for
     command: String,
     /// The path to the file to read
@@ -10,7 +10,7 @@ struct Cli {
 }
 
 pub fn search_for_packages() {
-    let args = Cli::parse();
+    let args = SearchPackages::parse();
     let contents =
         std::fs::read_to_string(args.path).expect("Something went wrong reading the file");
 
