@@ -7,8 +7,7 @@ use crate::cli::search_for_packages;
 
 fn main() {
     let file = check_requirements_exist_file();
-    println!("requirements: {:?}", file);
-    read_requirements_file(file);
+    read_requirements_file(file.clone());
 
     let folder = check_requirements_exist_folder();
     println!("requirements: {:?}", folder);
