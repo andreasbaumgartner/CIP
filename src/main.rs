@@ -3,7 +3,7 @@ use glob::glob;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-use crate::cli::run_cli;
+use crate::cli::search_for_packages;
 
 fn main() {
     let file = check_requirements_exist_file();
@@ -13,7 +13,7 @@ fn main() {
     let folder = check_requirements_exist_folder();
     println!("requirements: {:?}", folder);
 
-    let _args = run_cli();
+    let _args = search_for_packages();
 }
 
 fn check_requirements_exist_file() -> Vec<String> {
