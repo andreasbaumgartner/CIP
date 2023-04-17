@@ -4,6 +4,8 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 use crate::cli::search_for_packages;
+use clap::Parser;
+use cli::Commmands;
 
 fn main() {
     let file = check_requirements_exist_file();
@@ -13,6 +15,8 @@ fn main() {
     println!("requirements: {:?}", folder);
 
     let _args = search_for_packages();
+
+    let _commands = Commmands::parse();
 }
 
 fn check_requirements_exist_file() -> Vec<String> {
